@@ -1,0 +1,43 @@
+opam-version: "2.0"
+dev-repo: "https://github.com/pitag-ha/dune-release-test"
+bug-reports: "https://github.com/pitag-ha/dune-release-test/issues"
+doc: "https://pitag-ha.github.io/dune-release-test/"
+
+build: [
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+
+depends: [
+  "ocaml" {>= "4.06.0"}
+  "dune" {>= "2.4.0"}
+  "curly"
+  "fmt"
+  "bos"
+  "cmdliner"
+  "re"
+  "opam-format" {< "2.1.0~beta"}
+  "opam-state" {< "2.1.0~beta"}
+  "opam-core" {< "2.1.0~beta"}
+  "rresult"
+  "logs"
+  "odoc"
+  "alcotest" {with-test}
+  "mdx" {with-test & >= "1.6.0"}
+  "yojson"
+]
+
+synopsis: "Test dune-release"
+description: """
+Test dune-release
+"""
+x-commit-hash: "70d791044fc9f96ffc21341020d1344563a16a82"
+url {
+  src:
+    "https://github.com/pitag-ha/dune-release-test/releases/download/0.1.1/dune-release-test-0.1.1.tbz"
+  checksum: [
+    "sha256=aa73011b5dcabeaf6a6a8f3eb84ac852e43472a63c88c9bb81174b4464b0368a"
+    "sha512=6742814c20499462b613790003467374d083dbca91e95f47c770a72f6cbc971dff85cf1d596a870be38b04b44f09f281b2583e6266934723e5bd3ea62ab4cc73"
+  ]
+}
